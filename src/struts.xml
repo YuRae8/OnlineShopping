@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+
+    <!-- 指定由spring负责action对象的创建  -->
+    <constant name="struts.objectFactory" value="spring"/>
+
+    <!-- 后台登录拦截器 -->
+    <package name="adminPackage" extends="struts-default">
+        <interceptors>
+            <interceptor name="adminInterceptor" class="com.action.AdminInterceptor"/>
+            <interceptor-stack name="adminStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="adminInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+    </package>
+
+</struts>
