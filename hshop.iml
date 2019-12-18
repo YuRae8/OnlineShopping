@@ -12,6 +12,12 @@
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
+          <fileset id="s2fileset" name="My Fileset" removed="false">
+            <file>file://$MODULE_DIR$/src/struts.xml</file>
+            <file>jar://$MODULE_DIR$/WebContent/lib/struts2-convention-plugin-2.5.10.1.jar!/struts-plugin.xml</file>
+            <file>jar://$MODULE_DIR$/WebContent/lib/struts2-core-2.5.10.1.jar!/struts-default.xml</file>
+            <file>jar://$MODULE_DIR$/WebContent/lib/struts2-spring-plugin-2.5.10.1.jar!/struts-plugin.xml</file>
+          </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
       </facet>
@@ -23,6 +29,10 @@
           <file>file://$MODULE_DIR$/build/classes/hibernate.xml</file>
           <file>file://$MODULE_DIR$/src/spring.xml</file>
           <file>file://$MODULE_DIR$/src/hibernate.xml</file>
+        </fileset>
+        <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
+          <file>file://$MODULE_DIR$/src/hibernate.xml</file>
+          <file>file://$MODULE_DIR$/src/spring.xml</file>
         </fileset>
       </configuration>
     </facet>
