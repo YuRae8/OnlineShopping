@@ -47,7 +47,7 @@ public class ProductSale {
         return price;
     }
     public void setPrice(float price) {
-        this.price = (float)Math.round(price*100)/100;;
+        this.price = (float)Math.round(price*100)/100;
     }
 
 }
