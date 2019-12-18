@@ -19,7 +19,7 @@
 		<property name="driverClass" value="com.mysql.jdbc.Driver" /><!-- 数据库驱动 -->
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/eshop" /> <!-- 连接URL -->
 		<property name="user" value="root" /> <!-- 数据库用户名 -->
-		<property name="password" value="0519" /> <!-- 数据库密码 -->
+		<property name="password" value="199886" /> <!-- 数据库密码 -->
 		<!-- c3p0连接池参数配置 -->
         <property name="initialPoolSize" value="3" /><!-- 初始化连接数 -->
         <property name="minPoolSize" value="2" /><!-- 最小连接数 -->
