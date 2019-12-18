@@ -12,7 +12,6 @@ public class ShopcartDao extends BaseDao{
 
     /**
      * 获取
-     * @return
      */
     public Shopcart get(int userid, int productid) {
         return getSession().createQuery("from Shopcart where user.id=:userid and product.id=:productid", Shopcart.class)
@@ -21,7 +20,6 @@ public class ShopcartDao extends BaseDao{
 
     /**
      * 获取列表
-     * @return
      */
     public List<Shopcart> getList(int userid) {
         return getSession().createQuery("from Shopcart where user.id=:userid", Shopcart.class)

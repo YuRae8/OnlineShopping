@@ -21,9 +21,6 @@ import com.entity.Users;
 
     /**
      * 通过用户名和密码查找
-     * @param username
-     * @param password
-     * @return 无记录返回null
      */
     public Users getByUsernameAndPassword(String username, String password){
         return getSession().createQuery("from Users where username=:username and password=:password", Users.class)
@@ -32,9 +29,6 @@ import com.entity.Users;
 
     /**
      * 获取列表
-     * @param page
-     * @param rows
-     * @return 无记录返回空集合
      */
     public List<Users> getList(int page, int rows){
         return getSession().createQuery("from Users", Users.class)
@@ -43,7 +37,6 @@ import com.entity.Users;
 
     /**
      * 总数
-     * @return
      */
     public long getTotal() {
         return getSession().createQuery("select count(*) from Users", Long.class).uniqueResult();

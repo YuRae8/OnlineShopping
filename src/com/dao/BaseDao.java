@@ -11,10 +11,6 @@ import org.hibernate.SessionFactory;
 /**
  * dao层基类
  * 方便子类获取session对象, 及其他公用属性及方法
- * 如果遇到异常HibernateException("No Sessionfound for current thread"), 是因为调用请求没有在spring事务中
- * 此类中通过getCurrentSession得到的session对象被绑定在spring线程SpringSessionContext中而不是ThreadLocalSessionContext
- * 因此必须要在spring事务中才能使用session对象, 此session在事务开启时自动创建, 事务结束后自动销毁
- * 如果想使部分方法不开启事务, 除了使用openSession手动创建和销毁, 当前还没发现好的解决方案
  */
 public class BaseDao {
 
