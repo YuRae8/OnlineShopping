@@ -15,10 +15,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取列表
-     * @param category
-     * @param page
-     * @param size
-     * @return
      */
     public List<Product> getProductList(int page, int size){
         return getSession().createQuery("from Product order by id desc", Product.class)
@@ -27,10 +23,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取列表
-     * @param category
-     * @param page
-     * @param size
-     * @return
      */
     public List<Product> getProductListStock(int page, int size){
         return getSession().createQuery("from Product order by stock asc", Product.class)
@@ -39,8 +31,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取总数
-     * @param category
-     * @return
      */
     public long getProductTotal(){
         return getSession().createQuery("select count(*) from Product", Long.class).uniqueResult();
@@ -48,9 +38,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取列表
-     * @param category
-     * @param page
-     * @param size
      * @return
      */
     public List<Product> getProductListByName(String name, int page, int size){
@@ -60,8 +47,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取总数
-     * @param category
-     * @return
      */
     public long getProductTotalByName(String name){
         return getSession().createQuery("select count(*) from Product where name like :name", Long.class)
@@ -70,10 +55,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 库存预警列表
-     * @param status
-     * @param page
-     * @param size
-     * @return
      */
     public List<Product> getWarnList(int page, int size) {
         return getSession().createQuery("from Product where stock<10 order by id desc", Product.class)
@@ -82,8 +63,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 库存预警数量
-     * @param status
-     * @return
      */
     public long getWarnTotal(){
         return (Long) getSession().createQuery("select count(*) from Product where stock<5").uniqueResult();
@@ -91,10 +70,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取列表
-     * @param category
-     * @param page
-     * @param size
-     * @return
      */
     public List<Product> getCategoryList(int categoryid, int page, int size){
         return getSession().createQuery("from Product where category_id=:categoryid order by id desc", Product.class)
@@ -103,8 +78,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取总数
-     * @param category
-     * @return
      */
     public long getCategoryTotal(int categoryid){
         return (Long) getSession().createQuery("select count(*) from Product where category_id=:categoryid")
@@ -114,9 +87,6 @@ public class ProductDao extends BaseDao{
     /**
      * 	获取列表
      * @param category
-     * @param page
-     * @param size
-     * @return
      */
     public List<Product> getStatusList(int status, int page, int size) {
         return getSession().createQuery("from Product where id in ("+packProductids(status)+") order by id desc", Product.class)
@@ -125,8 +95,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取总数
-     * @param category
-     * @return
      */
     public long getStatusTotal(int status) {
         return getSession().createQuery("select count(*) from Product where id in ("+packProductids(status)+")", Long.class).uniqueResult();
@@ -134,8 +102,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 封装productids
-     * @param status
-     * @return
      */
     private String packProductids(int status) {
         String productids = "";
@@ -165,9 +131,6 @@ public class ProductDao extends BaseDao{
     /**
      * 	获取列表
      * @param category
-     * @param page
-     * @param size
-     * @return
      */
     public List<Product> getSearchList(String search, int page, int size){
         return getSession().createQuery("from Product where name like :search order by id desc", Product.class)
@@ -176,8 +139,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取总数
-     * @param category
-     * @return
      */
     public long getSearchTotal(String search){
         return getSession().createQuery("select count(*) from Product where name like :search", Long.class)
@@ -186,9 +147,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取特卖列表
-     * @param page
-     * @param size
-     * @return
      */
     public List<ProductShow> getShowList(){
         return getSession().createQuery("from ProductShow order by id desc", ProductShow.class).list();
@@ -197,9 +155,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取特卖列表
-     * @param page
-     * @param size
-     * @return
      */
     public List<ProductShow> getShowList(int page, int size){
         return getSession().createQuery("from ProductShow order by id desc", ProductShow.class)
@@ -208,7 +163,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取特卖总数
-     * @return
      */
     public long getShowTotal(){
         return getSession().createQuery("select count(*) from ProductShow", Long.class).uniqueResult();
@@ -216,9 +170,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取促销列表
-     * @param page
-     * @param size
-     * @return
      */
     public List<ProductSale> getSaleList(){
         return getSession().createQuery("from ProductSale order by id desc", ProductSale.class).list();
@@ -226,9 +177,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取促销列表
-     * @param page
-     * @param size
-     * @return
      */
     public List<ProductSale> getSaleList(int page, int size){
         return getSession().createQuery("from ProductSale order by id desc", ProductSale.class)
@@ -245,9 +193,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取新品列表
-     * @param page
-     * @param size
-     * @return
      */
     public List<ProductNew> getNewList(){
         return getSession().createQuery("from ProductNew order by id desc", ProductNew.class).list();
@@ -255,9 +200,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取新品列表
-     * @param page
-     * @param size
-     * @return
      */
     public List<ProductNew> getNewList(int page, int size){
         return getSession().createQuery("from ProductNew order by id desc", ProductNew.class)
@@ -266,7 +208,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 	获取新品总数
-     * @return
      */
     public long getNewTotal(){
         return getSession().createQuery("select count(*) from ProductNew", Long.class).uniqueResult();
@@ -274,8 +215,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 获取
-     * @param productid
-     * @return
      */
     public ProductSale getSale(int productid) {
         return getSession().createQuery("from ProductSale where product_id=:productid", ProductSale.class)
@@ -284,8 +223,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 获取
-     * @param productid
-     * @return
      */
     public ProductShow getShow(int productid) {
         return getSession().createQuery("from ProductShow where product_id=:productid", ProductShow.class)
@@ -294,8 +231,6 @@ public class ProductDao extends BaseDao{
 
     /**
      * 获取
-     * @param productid
-     * @return
      */
     public ProductNew getNew(int productid) {
         return getSession().createQuery("from ProductNew where product_id=:productid", ProductNew.class)
