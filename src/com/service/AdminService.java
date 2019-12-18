@@ -76,7 +76,6 @@ public class AdminService {
 
     /**
      * 更新
-     * @param user
      */
     public boolean update(Admin admin) {
         return adminDao.update(admin);
@@ -84,7 +83,6 @@ public class AdminService {
 
     /**
      * 删除
-     * @param user
      */
     public boolean delete(Admin admin) {
         return adminDao.delete(admin);
